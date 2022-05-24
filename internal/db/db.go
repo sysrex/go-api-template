@@ -4,11 +4,12 @@ import (
 	"context"
 	"fmt"
 	"os"
+
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )
 
-type Database Struct {
+type Database struct {
 	Client *sqlx.DB
 }
 
@@ -19,7 +20,7 @@ func NewDatabase() (*Database, error) {
 		os.Getenv("DB_PORT"),
 		os.Getenv("DB_USERNAME"),
 		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_TABLE"),
+		os.Getenv("DB_DB"),
 		os.Getenv("SSL_MODE"),
 	)
 
