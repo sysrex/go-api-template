@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/sysrex/go-api-template/internal/db"
+)
 
 // This will be responsable for the instantiaion and startup of the go app
 func Run() error {
@@ -11,6 +15,12 @@ func Run() error {
 		fmt.Println("Failed to connect to the database")
 		return err
 	}
+
+	if err := db.MigrateDB(); err != nil {
+		fmt.Println("failed to migrate database")
+		return err
+	}
+	fmt.Println("connected and pinged the database")
 
 	return nil
 }

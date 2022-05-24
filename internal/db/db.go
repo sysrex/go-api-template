@@ -15,7 +15,7 @@ type Database struct {
 
 func NewDatabase() (*Database, error) {
 	connectionString := fmt.Sprintf(
-		"host=%s post=%s user=%s dbname=%s password=%s sslmode=%s",
+		"host=%s port=%s user=%s dbname=%s password=%s sslmode=%s",
 		os.Getenv("DB_HOST"),
 		os.Getenv("DB_PORT"),
 		os.Getenv("DB_USERNAME"),
@@ -34,6 +34,6 @@ func NewDatabase() (*Database, error) {
 	}, nil
 }
 
-func (d *Database) Ping(ctx, context.Context) error {
+func (d *Database) Ping(ctx context.Context) error {
 	return d.Client.DB.PingContext(ctx)
 }
