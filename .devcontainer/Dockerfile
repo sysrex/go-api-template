@@ -8,7 +8,10 @@ FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
 ARG NODE_VERSION="none"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
-RUN go get -u github.com/cosmtrek/air && go install github.com/go-delve/delve/cmd/dlv@latest
+RUN go get -u github.com/cosmtrek/air &&\
+    go install github.com/go-delve/delve/cmd/dlv@latest &&\
+    go install github.com/go-task/task/v3/cmd/task@latest &&\
+    go install golang.org/x/tools/gopls@latest
 
 
 # [Optional] Uncomment this section to install additional OS packages.
