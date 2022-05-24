@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sysrex/go-api-template/internal/db"
+	"go-api-template/internal/db"
 )
 
 // This will be responsable for the instantiaion and startup of the go app

@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/sysrex/go-api-template/internal/comment"
+	"go-api-template/internal/comment"
 )
 
 type CommentRow struct {
